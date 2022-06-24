@@ -1,20 +1,30 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
-
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
-}
+import React, {useState, useCallback} from 'react';
+import {
+    StyleSheet, Text, View, ImageBackground, TextInput, ActivityIndicator
+} from 'react-native';
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+    root: {
+        flex: 1,
+    },
+
+    image: {
+        flex: 1,
+        flexDirection: 'column',
+    },
+})
+
+const App = () => {
+    const [input, setInput] = useState("");
+
+    return (
+        <View style = {styles.root}>
+            <ImageBackground source = {require('./assets/IMG_2949.jpeg')}
+                resizeMode = 'cover'
+                style = {styles.image}>
+            </ImageBackground>
+        </View>
+    );
+}
+
+export default App;
