@@ -25,10 +25,29 @@ const styles = StyleSheet.create({
         borderRadius: 16,
         borderBottomColor: '#df8e00',
     },
+
+    infoView: {
+        alignItems: 'center',
+    },
+
+    cityCountryText: {
+        color: '#fff',
+        fontSize: 40,
+        fontWeight: 'bold',
+    },
+
+    dataText: {
+        color: '#fff',
+        fontSize: 22,
+        marginVertical: 10,
+    },
+
 })
 
 const App = () => {
     const [input, setInput] = useState("");
+    const [loading, setLoading] = useState(false);
+    const [data, setData] = useState([]);
 
     return (
         <View style = {styles.root}>
@@ -42,6 +61,22 @@ const App = () => {
                             placeholderTextColor = {'#800'}
                             style = {styles.textInput}/>
                     </View>
+                    {loading && (<View>
+                            <ActivityIndicator size = {'large'} color = '#000' />
+                        </View>)}
+
+                    {data && (
+                        <View style = {styles.infoView}>
+                            <Text style = {styles.cityCountryText}>
+                                {`City, Country`}
+                            </Text>
+
+                            <Text style = {styles.dataText}>
+                                {new Date().toLocaleString()}
+                            </Text>
+                        </View>
+                    )}
+
             </ImageBackground>
         </View>
     );
