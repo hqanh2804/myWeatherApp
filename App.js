@@ -54,6 +54,13 @@ const styles = StyleSheet.create({
         marginVertical: 10,
         fontWeight: '500',
     },
+
+    weatherText: {
+        fontSize: 40,
+        color: '#fff',
+        marginVertical: 10,
+        fontWeight: '500',
+    }
     
 });
 
@@ -96,7 +103,7 @@ const App = () => {
                                 {`Min Temperature °C / Max Temperature °C`}
                             </Text>
 
-                            <Text style = {styles.weather}>
+                            <Text style = {styles.weatherText}>
                                 {`Weather: `}
                             </Text>
                         </View>
