@@ -42,6 +42,12 @@ const styles = StyleSheet.create({
         marginVertical: 10,
     },
 
+    tempText: {
+        color: '#fff',
+        fontSize: 40,
+        marginVertical: 10,
+    }
+
 })
 
 const App = () => {
@@ -73,6 +79,10 @@ const App = () => {
 
                             <Text style = {styles.dataText}>
                                 {new Date().toLocaleString()}
+                            </Text>
+
+                            <Text style = {styles.tempText}>
+                                {`Current Temperature °C`}
                             </Text>
                         </View>
                     )}
