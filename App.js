@@ -18,7 +18,7 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         padding: 5,
         paddingVertical: 20,
-        marginVertical: 150,
+        marginVertical: 100,
         marginHorizontal: 10,
         backgroundColor: '#fff',
         fontSize: 19,
@@ -94,6 +94,10 @@ const App = () => {
 
                             <Text style = {styles.minMaxText}>
                                 {`Min Temperature °C / Max Temperature °C`}
+                            </Text>
+
+                            <Text style = {styles.weather}>
+                                {`Weather: `}
                             </Text>
                         </View>
                     )}
