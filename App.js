@@ -46,9 +46,16 @@ const styles = StyleSheet.create({
         color: '#fff',
         fontSize: 40,
         marginVertical: 10,
-    }
+    },
 
-})
+    minMaxText: {
+        color: '#fff',
+        fontSize: 20,
+        marginVertical: 10,
+        fontWeight: '500',
+    },
+    
+});
 
 const App = () => {
     const [input, setInput] = useState("");
@@ -84,9 +91,12 @@ const App = () => {
                             <Text style = {styles.tempText}>
                                 {`Current Temperature °C`}
                             </Text>
+
+                            <Text style = {styles.minMaxText}>
+                                {`Min Temperature °C / Max Temperature °C`}
+                            </Text>
                         </View>
                     )}
-
             </ImageBackground>
         </View>
     );
