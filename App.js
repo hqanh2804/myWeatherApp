@@ -74,6 +74,18 @@ const App = () => {
         baseUrl: 'http://api.openweathermap.org/data/2.5/',
     };
 
+    const fetchDataHandler = useCallback(() => {
+        setLoading(true);
+        setInput("");
+        axios({
+            method: 'GET',
+            url: `https://api.openweathermap.org/data/2.5/weather?q=${input}&units=metric&appid=${api.key}`,
+        }).then(res => {
+            console.log(res.data);
+            setData(res.data);
+        }).catch(e => console.dir(e)).finally(() => setLoading(false));
+    }, [api.key, input]);
+
     return (
         <View style = {styles.root}>
             <ImageBackground source = {require('./assets/IMG_2949.jpeg')}
