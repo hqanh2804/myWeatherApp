@@ -69,6 +69,11 @@ const App = () => {
     const [loading, setLoading] = useState(false);
     const [data, setData] = useState([]);
 
+    const api = {
+        key: '486a7dceff36934a00e8daaa99a9630e',
+        baseUrl: 'http://api.openweathermap.org/data/2.5/',
+    };
+
     return (
         <View style = {styles.root}>
             <ImageBackground source = {require('./assets/IMG_2949.jpeg')}
