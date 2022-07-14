@@ -44,7 +44,7 @@ const styles = StyleSheet.create({
 
     tempText: {
         color: '#fff',
-        fontSize: 40,
+        fontSize: 45,
         marginVertical: 10,
     },
 
@@ -96,16 +96,19 @@ const App = () => {
                             onChangeText = {text => setInput(text)}
                             value = {input}
                             placeholderTextColor = {'#800'}
-                            style = {styles.textInput}/>
+                            style = {styles.textInput}
+                            onSubmitEditing = {fetchDataHandler}
+                            />
                     </View>
                     {loading && (<View>
                             <ActivityIndicator size = {'large'} color = '#000' />
-                        </View>)}
+                        </View>
+                    )}
 
                     {data && (
                         <View style = {styles.infoView}>
                             <Text style = {styles.cityCountryText}>
-                                {`City, Country`}
+                                {`${data?.name}, ${data?.sys?.country}`}
                             </Text>
 
                             <Text style = {styles.dataText}>
@@ -113,15 +116,15 @@ const App = () => {
                             </Text>
 
                             <Text style = {styles.tempText}>
-                                {`Current Temperature °C`}
+                                {`${Math.round(data?.main?.temp)} °C`}
                             </Text>
 
                             <Text style = {styles.minMaxText}>
-                                {`Min Temperature °C / Max Temperature °C`}
+                                {`Min ${Math.round(data?.main?.temp_min)} °C / Max ${Math.round(data?.main?.temp_max)} °C`}
                             </Text>
 
                             <Text style = {styles.weatherText}>
-                                {`Weather: `}
+                                {`Weather: ${data?.weather[0].main} `}
                             </Text>
                         </View>
                     )}
