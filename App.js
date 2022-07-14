@@ -1,3 +1,4 @@
+import axios from 'axios';
 import React, {useState, useCallback} from 'react';
 import {
     StyleSheet, Text, View, ImageBackground, TextInput, ActivityIndicator
@@ -68,7 +69,7 @@ const App = () => {
     const [input, setInput] = useState("");
     const [loading, setLoading] = useState(false);
     const [data, setData] = useState([]);
-
+    
     const api = {
         key: '486a7dceff36934a00e8daaa99a9630e',
         baseUrl: 'http://api.openweathermap.org/data/2.5/',
@@ -83,25 +84,25 @@ const App = () => {
         }).then(res => {
             console.log(res.data);
             setData(res.data);
-        }).catch(e => console.dir(e)).finally(() => setLoading(false));
+            }).catch(e => console.dir(e)).finally(() => setLoading(false));
     }, [api.key, input]);
 
     return (
         <View style = {styles.root}>
-            <ImageBackground source = {require('./assets/IMG_2949.jpeg')}
-                resizeMode = 'cover'
+            <ImageBackground source = {require('./assets/IMG_2949.jpeg')} 
+                resizeMode = 'cover' 
                 style = {styles.image}>
                     <View>
-                        <TextInput placeholder = 'Enter city name and press enter...'
-                            onChangeText = {text => setInput(text)}
-                            value = {input}
-                            placeholderTextColor = {'#800'}
-                            style = {styles.textInput}
-                            onSubmitEditing = {fetchDataHandler}
-                            />
+                        <TextInput placeholder = "Enter city name and press return..."
+                        onChangeText = {text => setInput(text)}
+                        value = {input}
+                        placeholderTextColor = {'#800'}
+                        style = {styles.textInput}
+                        onSubmitEditing = {fetchDataHandler}
+                        />
                     </View>
                     {loading && (<View>
-                            <ActivityIndicator size = {'large'} color = '#000' />
+                        <ActivityIndicator size = {'large'} color = '#000' />
                         </View>
                     )}
 
@@ -111,20 +112,19 @@ const App = () => {
                                 {`${data?.name}, ${data?.sys?.country}`}
                             </Text>
 
-                            <Text style = {styles.dataText}>
+                            <Text style = {styles.dataText}> 
                                 {new Date().toLocaleString()}
                             </Text>
-
-                            <Text style = {styles.tempText}>
+                            <Text style = {styles.tempText}> 
                                 {`${Math.round(data?.main?.temp)} °C`}
                             </Text>
 
-                            <Text style = {styles.minMaxText}>
+                            <Text style = {styles.minMaxText}> 
                                 {`Min ${Math.round(data?.main?.temp_min)} °C / Max ${Math.round(data?.main?.temp_max)} °C`}
                             </Text>
 
                             <Text style = {styles.weatherText}>
-                                {`Weather: ${data?.weather[0].main} `}
+                                {`Weather: ${data?.weather[0].main}`}
                             </Text>
                         </View>
                     )}
