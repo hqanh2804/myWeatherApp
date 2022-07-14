@@ -72,7 +72,7 @@ const App = () => {
     
     const api = {
         key: '486a7dceff36934a00e8daaa99a9630e',
-        baseUrl: 'http://api.openweathermap.org/data/2.5/',
+        baseUrl: 'http://api.openweathermap.org/data/3.0/',
     };
 
     const fetchDataHandler = useCallback(() => {
